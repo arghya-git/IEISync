@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2b7a27ce6cc34223a72c4c5cd9038680" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="WEBIEIModel.IEI_TBL_FILE_TYPES" Width="1.5" PointX="5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBIEIModel.IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBIEIModel.IEI_TBL_FILE_UPLOADED" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBIEIModel.IEI_TBL_FRTH_EVENT" Width="1.5" PointX="7" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBIEIModel.IEI_TBL_TECH_ASSOCIATE" Width="1.5" PointX="5.875" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBIEIModel.IEI_TBL_TECH_DIVISION_MAST" Width="1.5" PointX="0.625" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBIEIModel.IEI_TBL_TECH_PROG_HD" Width="1.5" PointX="7.875" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBIEIModel.IEI_TBL_TECH_PROPOSAL" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBIEIModel.IEI_TBL_TECH_SCHEDULE" Width="1.5" PointX="10.125" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_FILE_UPLOADED_IEI_TBL_FILE_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_FILE_UPLOAD_VS_MEMB_APP_IEI_TBL_FILE_UPLOADED" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED1" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED2" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_FRTH_EVENT_IEI_TBL_TECH_PROPOSAL" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_TECH_ASSOCIATE_IEI_TBL_TECH_PROPOSAL" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_DIVISION_MAST" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_PROG_HD" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROG_HD" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROPOSAL1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WEBIEIModel.IEI_TBL_CENTMAST" Width="1.5" PointX="5.125" PointY="8.125" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_FRTH_EVENT_IEI_TBL_CENTMAST" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_CENTMAST" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_FILE_UPLOADED_BROCHURE_FU_ID" />
+        <AssociationConnector Association="WEBIEIModel.FK_IEI_TBL_FILE_UPLOADED_GUIDLINE_FU_ID" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

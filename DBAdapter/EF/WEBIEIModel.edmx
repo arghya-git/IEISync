@@ -1,0 +1,1246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WEBIEIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="IEI_TBL_CENTMAST">
+          <Key>
+            <PropertyRef Name="CCODE" />
+          </Key>
+          <Property Name="CCODE" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="CNAME" Type="varchar" MaxLength="100" />
+          <Property Name="CADL2" Type="varchar" MaxLength="100" />
+          <Property Name="CADL3" Type="varchar" MaxLength="100" />
+          <Property Name="CADL4" Type="varchar" MaxLength="100" />
+          <Property Name="CADL5" Type="varchar" MaxLength="100" />
+          <Property Name="EMAILID" Type="varchar" MaxLength="100" />
+          <Property Name="TEL" Type="varchar" MaxLength="40" />
+          <Property Name="FAX" Type="varchar" MaxLength="25" />
+          <Property Name="COUNTRY_TYPE" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_FILE_TYPES">
+          <Key>
+            <PropertyRef Name="FM_ID" />
+          </Key>
+          <Property Name="FM_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UPLOAD_DESC" Type="varchar" MaxLength="50" />
+          <Property Name="FILE_EXT" Type="varchar" MaxLength="50" />
+          <Property Name="FILE_MAX_SIZE" Type="varchar" MaxLength="50" />
+          <Property Name="NO_OF_FILES" Type="int" />
+          <Property Name="ROOT_PATH" Type="varchar" MaxLength="200" />
+          <Property Name="REMARKS" Type="varchar" MaxLength="500" />
+          <Property Name="CL" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP">
+          <Key>
+            <PropertyRef Name="UM_ID" />
+          </Key>
+          <Property Name="UM_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FU_ID" Type="int" />
+          <Property Name="RECSLNO" Type="varchar" MaxLength="14" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_FILE_UPLOADED">
+          <Key>
+            <PropertyRef Name="FU_ID" />
+          </Key>
+          <Property Name="FU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="REG_ID" Type="int" />
+          <Property Name="RECSLNO" Type="varchar" MaxLength="14" />
+          <Property Name="FILE_TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="FM_ID" Type="int" />
+          <Property Name="UPLOAD_FOR" Type="varchar" MaxLength="50" />
+          <Property Name="ROOT_PATH" Type="varchar" MaxLength="200" />
+          <Property Name="PHYSICAL_PATH" Type="varchar" MaxLength="200" />
+          <Property Name="FILE_SIZE" Type="int" />
+          <Property Name="ORIGINAL_FILE_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="MODIFIED_FILE_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="FILE_EXTENSION" Type="varchar" MaxLength="50" />
+          <Property Name="ERR_MSG" Type="varchar" MaxLength="50" />
+          <Property Name="ERR_CODE" Type="nchar" MaxLength="10" />
+          <Property Name="STATUS" Type="varchar" MaxLength="50" />
+          <Property Name="STATUS_FLAG" Type="bit" />
+          <Property Name="APP_VER" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_FRTH_EVENT">
+          <Key>
+            <PropertyRef Name="EVENT_ID" />
+          </Key>
+          <Property Name="TECH_PROP_ID" Type="int" />
+          <Property Name="CCODE" Type="varchar" MaxLength="5" />
+          <Property Name="PROG_HD_ID" Type="int" />
+          <Property Name="PROG_TYPE" Type="varchar" MaxLength="100" />
+          <Property Name="DIVISION" Type="varchar" MaxLength="5" />
+          <Property Name="PROG_TITLE" Type="varchar" MaxLength="100" />
+          <Property Name="PROG_DT" Type="date" />
+          <Property Name="NO_OF_DAYS" Type="int" />
+          <Property Name="PROG_THEME" Type="varchar(max)" />
+          <Property Name="PROG_ABSTRUCT" Type="varchar(max)" />
+          <Property Name="PROG_VENUE_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="PROG_VENUE_ADD" Type="varchar" MaxLength="100" />
+          <Property Name="C_PERSON" Type="varchar" MaxLength="100" />
+          <Property Name="C_PERSON_ADD" Type="varchar" MaxLength="500" />
+          <Property Name="C_PERSON_MOB" Type="varchar" MaxLength="30" />
+          <Property Name="C_PERSON_PHONE" Type="varchar" MaxLength="30" />
+          <Property Name="C_PERSON_EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="GUIDELINE_LINK" Type="varchar" MaxLength="100" />
+          <Property Name="BROCHURE_LINK" Type="varchar" MaxLength="100" />
+          <Property Name="WEBSITE_LINK" Type="varchar" MaxLength="100" />
+          <Property Name="EX_LINK1" Type="varchar" MaxLength="100" />
+          <Property Name="EX_LINK2" Type="varchar" MaxLength="100" />
+          <Property Name="EX_FIELD1" Type="varchar" MaxLength="50" />
+          <Property Name="EX_FIELD2" Type="varchar" MaxLength="50" />
+          <Property Name="EVENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUR_EVENT_DAY" Type="varchar" MaxLength="5" />
+          <Property Name="GUIDLINE_FU_ID" Type="int" />
+          <Property Name="BROCHURE_FU_ID" Type="int" />
+          <Property Name="PROG_MONTH" Type="varchar" MaxLength="20" />
+          <Property Name="PROG_YR" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_TECH_ASSOCIATE">
+          <Key>
+            <PropertyRef Name="ASSOCIATE_ID" />
+          </Key>
+          <Property Name="ASSOCIATE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TECH_PROP_ID" Type="int" />
+          <Property Name="ASSOCIATE_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="ASSOCIATE_ADD" Type="varchar" MaxLength="50" />
+          <Property Name="ASSOCIATE_CONTACTS" Type="varchar" MaxLength="50" />
+          <Property Name="CONTACT_PERSON" Type="varchar" MaxLength="100" />
+          <Property Name="REMARKS" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_TECH_DIVISION_MAST">
+          <Key>
+            <PropertyRef Name="DIV" />
+          </Key>
+          <Property Name="DIV" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="DISCRIPTION" Type="varchar" MaxLength="100" />
+          <Property Name="CL" Type="varchar" MaxLength="2" />
+          <Property Name="REMARKS" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_TECH_PROG_HD">
+          <Key>
+            <PropertyRef Name="PROG_HD_ID" />
+          </Key>
+          <Property Name="PROG_HD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PROG_TYPE_FLG" Type="varchar" MaxLength="1" />
+          <Property Name="PROG_TYPE_DESC" Type="varchar" MaxLength="50" />
+          <Property Name="PROG_TYPE" Type="varchar" MaxLength="100" />
+          <Property Name="PROG_DESC" Type="varchar" MaxLength="100" />
+          <Property Name="PROG_RULES1" Type="varchar" MaxLength="100" />
+          <Property Name="PROG_RULES2" Type="varchar" MaxLength="100" />
+          <Property Name="PROG_RULES3" Type="varchar" MaxLength="100" />
+          <Property Name="REMARKS" Type="varchar" MaxLength="500" />
+          <Property Name="RESERVE_FLG" Type="bit" />
+          <Property Name="CL" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_TECH_PROPOSAL">
+          <Key>
+            <PropertyRef Name="TECH_PROP_ID" />
+          </Key>
+          <Property Name="TECH_PROP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="REG_ID" Type="int" />
+          <Property Name="CCODE" Type="varchar" MaxLength="5" />
+          <Property Name="PROG_HD_ID" Type="int" />
+          <Property Name="DIVISION_BOARD" Type="varchar" MaxLength="5" />
+          <Property Name="PROG_TITLE" Type="varchar" MaxLength="100" />
+          <Property Name="PROG_DT_VIOLATION_FLG" Type="bit" />
+          <Property Name="DT_VIOLATION_RESION" Type="varchar(max)" />
+          <Property Name="PROG_DT" Type="date" />
+          <Property Name="NO_OF_DAYS" Type="int" />
+          <Property Name="PROG_VENUE" Type="varchar" MaxLength="100" />
+          <Property Name="CURR_AMT" Type="varchar" MaxLength="3" />
+          <Property Name="REQUEST_AMT" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="GRANT_AMT" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="PROG_ABSTRUCT" Type="varchar(max)" />
+          <Property Name="PROP_IP_ADD" Type="nchar" MaxLength="10" />
+          <Property Name="PROPOSAL_FLAG" Type="varchar" MaxLength="50" />
+          <Property Name="PROPOSAL_STATUS" Type="varchar" MaxLength="50" />
+          <Property Name="REMARKS" Type="varchar" MaxLength="200" />
+          <Property Name="REPORT_STATUS" Type="varchar" MaxLength="2" />
+          <Property Name="REPORT_DESC" Type="varchar(max)" />
+          <Property Name="REPORT_DETAILS_DESC_PATH" Type="varchar" MaxLength="200" />
+          <Property Name="DESC_FU_ID" Type="int" />
+          <Property Name="REPORT_IMG_DAIS_CAPTION" Type="varchar" MaxLength="50" />
+          <Property Name="REPORT_IMG_DAIS_PATH" Type="varchar" MaxLength="200" />
+          <Property Name="DAIS_FU_ID" Type="int" />
+          <Property Name="REPORT_IMG_TITLE_CAPTION" Type="varchar" MaxLength="50" />
+          <Property Name="REPORT_IMG_TITLE_PATH" Type="varchar" MaxLength="200" />
+          <Property Name="IMG_FU_ID" Type="int" />
+          <Property Name="PROPOSAL_CREATE_DT" Type="datetime" />
+          <Property Name="PROPOSAL_APPROVED_DT" Type="datetime" />
+          <Property Name="PROPOSAL_REPORT_SUBMIT_DT" Type="datetime" />
+          <Property Name="USER_PROPOSAL_LOGIN" Type="int" />
+          <Property Name="USER_MODERATOR" Type="varchar" MaxLength="50" />
+          <Property Name="USER_MODERATOR_IP_ADD" Type="varchar" MaxLength="50" />
+          <Property Name="USER_REPORT_LOGIN" Type="int" />
+          <Property Name="INSERTED_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_TECH_SCHEDULE">
+          <Key>
+            <PropertyRef Name="SCH_ID" />
+          </Key>
+          <Property Name="SCH_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PROG_HD_ID" Type="int" />
+          <Property Name="SCHEDULE_YEAR" Type="varchar" MaxLength="9" />
+          <Property Name="SCHEDULE_DESC" Type="varchar(max)" />
+          <Property Name="THEME" Type="varchar" MaxLength="200" />
+          <Property Name="TECH_PROP_ID" Type="int" />
+          <Property Name="SCHEDULE_DT" Type="date" />
+          <Property Name="NO_OF_DAYS" Type="int" />
+          <Property Name="SCHEDULE_CREATE_DT" Type="date" />
+          <Property Name="SCHEDULE_CREATE_USER" Type="varchar" MaxLength="50" />
+          <Property Name="CL" Type="varchar" MaxLength="2" />
+        </EntityType>
+        <Association Name="FK_IEI_TBL_FILE_UPLOAD_VS_MEMB_APP_IEI_TBL_FILE_UPLOADED">
+          <End Role="IEI_TBL_FILE_UPLOADED" Type="Self.IEI_TBL_FILE_UPLOADED" Multiplicity="0..1" />
+          <End Role="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" Type="Self.IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FU_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP">
+              <PropertyRef Name="FU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_FILE_UPLOADED_BROCHURE_FU_ID">
+          <End Role="IEI_TBL_FILE_UPLOADED" Type="Self.IEI_TBL_FILE_UPLOADED" Multiplicity="0..1" />
+          <End Role="IEI_TBL_FRTH_EVENT" Type="Self.IEI_TBL_FRTH_EVENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FU_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_FRTH_EVENT">
+              <PropertyRef Name="BROCHURE_FU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_FILE_UPLOADED_GUIDLINE_FU_ID">
+          <End Role="IEI_TBL_FILE_UPLOADED" Type="Self.IEI_TBL_FILE_UPLOADED" Multiplicity="0..1" />
+          <End Role="IEI_TBL_FRTH_EVENT" Type="Self.IEI_TBL_FRTH_EVENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FU_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_FRTH_EVENT">
+              <PropertyRef Name="GUIDLINE_FU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_FILE_UPLOADED_IEI_TBL_FILE_TYPES">
+          <End Role="IEI_TBL_FILE_TYPES" Type="Self.IEI_TBL_FILE_TYPES" Multiplicity="0..1" />
+          <End Role="IEI_TBL_FILE_UPLOADED" Type="Self.IEI_TBL_FILE_UPLOADED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_TYPES">
+              <PropertyRef Name="FM_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_FRTH_EVENT_IEI_TBL_CENTMAST">
+          <End Role="IEI_TBL_CENTMAST" Type="Self.IEI_TBL_CENTMAST" Multiplicity="0..1" />
+          <End Role="IEI_TBL_FRTH_EVENT" Type="Self.IEI_TBL_FRTH_EVENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_CENTMAST">
+              <PropertyRef Name="CCODE" />
+            </Principal>
+            <Dependent Role="IEI_TBL_FRTH_EVENT">
+              <PropertyRef Name="CCODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_FRTH_EVENT_IEI_TBL_TECH_PROPOSAL">
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="0..1" />
+          <End Role="IEI_TBL_FRTH_EVENT" Type="Self.IEI_TBL_FRTH_EVENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="TECH_PROP_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_FRTH_EVENT">
+              <PropertyRef Name="TECH_PROP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_ASSOCIATE_IEI_TBL_TECH_PROPOSAL">
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_ASSOCIATE" Type="Self.IEI_TBL_TECH_ASSOCIATE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="TECH_PROP_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_ASSOCIATE">
+              <PropertyRef Name="TECH_PROP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_CENTMAST">
+          <End Role="IEI_TBL_CENTMAST" Type="Self.IEI_TBL_CENTMAST" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_CENTMAST">
+              <PropertyRef Name="CCODE" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="CCODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED">
+          <End Role="IEI_TBL_FILE_UPLOADED" Type="Self.IEI_TBL_FILE_UPLOADED" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FU_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="DAIS_FU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED1">
+          <End Role="IEI_TBL_FILE_UPLOADED" Type="Self.IEI_TBL_FILE_UPLOADED" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FU_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="IMG_FU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED2">
+          <End Role="IEI_TBL_FILE_UPLOADED" Type="Self.IEI_TBL_FILE_UPLOADED" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FU_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="DESC_FU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_DIVISION_MAST">
+          <End Role="IEI_TBL_TECH_DIVISION_MAST" Type="Self.IEI_TBL_TECH_DIVISION_MAST" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_TECH_DIVISION_MAST">
+              <PropertyRef Name="DIV" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="DIVISION_BOARD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_PROG_HD">
+          <End Role="IEI_TBL_TECH_PROG_HD" Type="Self.IEI_TBL_TECH_PROG_HD" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_TECH_PROG_HD">
+              <PropertyRef Name="PROG_HD_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="PROG_HD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROG_HD">
+          <End Role="IEI_TBL_TECH_PROG_HD" Type="Self.IEI_TBL_TECH_PROG_HD" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_SCHEDULE" Type="Self.IEI_TBL_TECH_SCHEDULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_TECH_PROG_HD">
+              <PropertyRef Name="PROG_HD_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_SCHEDULE">
+              <PropertyRef Name="PROG_HD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROPOSAL1">
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_SCHEDULE" Type="Self.IEI_TBL_TECH_SCHEDULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="TECH_PROP_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_SCHEDULE">
+              <PropertyRef Name="TECH_PROP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_Sync_MembData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RECSLNO" Type="varchar" Mode="In" />
+          <Parameter Name="OLDMEMBCODE" Type="varchar" Mode="In" />
+          <Parameter Name="NEWMEMBCODE" Type="varchar" Mode="In" />
+          <Parameter Name="PARTYCODE" Type="varchar" Mode="In" />
+          <Parameter Name="MEMB_IDENTITY" Type="varchar" Mode="In" />
+          <Parameter Name="LOGIN_ID" Type="int" Mode="In" />
+          <Parameter Name="PARTY_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="SALUTATION" Type="varchar" Mode="In" />
+          <Parameter Name="SFX" Type="varchar" Mode="In" />
+          <Parameter Name="ADD1" Type="varchar" Mode="In" />
+          <Parameter Name="ADD2" Type="varchar" Mode="In" />
+          <Parameter Name="ADD3" Type="varchar" Mode="In" />
+          <Parameter Name="ADD4" Type="varchar" Mode="In" />
+          <Parameter Name="ADD5" Type="varchar" Mode="In" />
+          <Parameter Name="PIN" Type="varchar" Mode="In" />
+          <Parameter Name="NATIONALITY" Type="varchar" Mode="In" />
+          <Parameter Name="COUNTRY_RESIDENCE" Type="varchar" Mode="In" />
+          <Parameter Name="GENDER" Type="varchar" Mode="In" />
+          <Parameter Name="MOBILE" Type="varchar" Mode="In" />
+          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+          <Parameter Name="PHONE" Type="varchar" Mode="In" />
+          <Parameter Name="DOB" Type="date" Mode="In" />
+          <Parameter Name="CENTRE" Type="varchar" Mode="In" />
+          <Parameter Name="DIVISION" Type="varchar" Mode="In" />
+          <Parameter Name="SUBSCRIPTION_CATEGORY" Type="varchar" Mode="In" />
+          <Parameter Name="ENROLEMENT_START_DT" Type="date" Mode="In" />
+          <Parameter Name="ENROLEMENT_END_DT" Type="date" Mode="In" />
+          <Parameter Name="SUBSCRIPTION_END_DT" Type="date" Mode="In" />
+          <Parameter Name="MEMB_CATEGORY" Type="varchar" Mode="In" />
+          <Parameter Name="REG_CAT" Type="varchar" Mode="In" />
+          <Parameter Name="MEMB_TYPE" Type="varchar" Mode="In" />
+          <Parameter Name="GENERATE_DATE" Type="date" Mode="In" />
+          <Parameter Name="UPLOAD_DATE" Type="date" Mode="In" />
+          <Parameter Name="WEB_UPDT_FLG" Type="varchar" Mode="In" />
+          <Parameter Name="CL" Type="varchar" Mode="In" />
+          <Parameter Name="REMARKS" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="WEBIEIModelStoreContainer">
+          <EntitySet Name="IEI_TBL_CENTMAST" EntityType="Self.IEI_TBL_CENTMAST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IEI_TBL_FILE_TYPES" EntityType="Self.IEI_TBL_FILE_TYPES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" EntityType="Self.IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IEI_TBL_FILE_UPLOADED" EntityType="Self.IEI_TBL_FILE_UPLOADED" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IEI_TBL_FRTH_EVENT" EntityType="Self.IEI_TBL_FRTH_EVENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IEI_TBL_TECH_ASSOCIATE" EntityType="Self.IEI_TBL_TECH_ASSOCIATE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IEI_TBL_TECH_DIVISION_MAST" EntityType="Self.IEI_TBL_TECH_DIVISION_MAST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IEI_TBL_TECH_PROG_HD" EntityType="Self.IEI_TBL_TECH_PROG_HD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IEI_TBL_TECH_PROPOSAL" EntityType="Self.IEI_TBL_TECH_PROPOSAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IEI_TBL_TECH_SCHEDULE" EntityType="Self.IEI_TBL_TECH_SCHEDULE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_IEI_TBL_FILE_UPLOAD_VS_MEMB_APP_IEI_TBL_FILE_UPLOADED" Association="Self.FK_IEI_TBL_FILE_UPLOAD_VS_MEMB_APP_IEI_TBL_FILE_UPLOADED">
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+            <End Role="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" EntitySet="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_FILE_UPLOADED_BROCHURE_FU_ID" Association="Self.FK_IEI_TBL_FILE_UPLOADED_BROCHURE_FU_ID">
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+            <End Role="IEI_TBL_FRTH_EVENT" EntitySet="IEI_TBL_FRTH_EVENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_FILE_UPLOADED_GUIDLINE_FU_ID" Association="Self.FK_IEI_TBL_FILE_UPLOADED_GUIDLINE_FU_ID">
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+            <End Role="IEI_TBL_FRTH_EVENT" EntitySet="IEI_TBL_FRTH_EVENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_FILE_UPLOADED_IEI_TBL_FILE_TYPES" Association="Self.FK_IEI_TBL_FILE_UPLOADED_IEI_TBL_FILE_TYPES">
+            <End Role="IEI_TBL_FILE_TYPES" EntitySet="IEI_TBL_FILE_TYPES" />
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_FRTH_EVENT_IEI_TBL_CENTMAST" Association="Self.FK_IEI_TBL_FRTH_EVENT_IEI_TBL_CENTMAST">
+            <End Role="IEI_TBL_CENTMAST" EntitySet="IEI_TBL_CENTMAST" />
+            <End Role="IEI_TBL_FRTH_EVENT" EntitySet="IEI_TBL_FRTH_EVENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_FRTH_EVENT_IEI_TBL_TECH_PROPOSAL" Association="Self.FK_IEI_TBL_FRTH_EVENT_IEI_TBL_TECH_PROPOSAL">
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+            <End Role="IEI_TBL_FRTH_EVENT" EntitySet="IEI_TBL_FRTH_EVENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_ASSOCIATE_IEI_TBL_TECH_PROPOSAL" Association="Self.FK_IEI_TBL_TECH_ASSOCIATE_IEI_TBL_TECH_PROPOSAL">
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+            <End Role="IEI_TBL_TECH_ASSOCIATE" EntitySet="IEI_TBL_TECH_ASSOCIATE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_CENTMAST" Association="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_CENTMAST">
+            <End Role="IEI_TBL_CENTMAST" EntitySet="IEI_TBL_CENTMAST" />
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED" Association="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED">
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED1" Association="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED1">
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED2" Association="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED2">
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_DIVISION_MAST" Association="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_DIVISION_MAST">
+            <End Role="IEI_TBL_TECH_DIVISION_MAST" EntitySet="IEI_TBL_TECH_DIVISION_MAST" />
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_PROG_HD" Association="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_PROG_HD">
+            <End Role="IEI_TBL_TECH_PROG_HD" EntitySet="IEI_TBL_TECH_PROG_HD" />
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROG_HD" Association="Self.FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROG_HD">
+            <End Role="IEI_TBL_TECH_PROG_HD" EntitySet="IEI_TBL_TECH_PROG_HD" />
+            <End Role="IEI_TBL_TECH_SCHEDULE" EntitySet="IEI_TBL_TECH_SCHEDULE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROPOSAL1" Association="Self.FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROPOSAL1">
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+            <End Role="IEI_TBL_TECH_SCHEDULE" EntitySet="IEI_TBL_TECH_SCHEDULE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WEBIEIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="IEI_TBL_FILE_TYPES">
+          <Key>
+            <PropertyRef Name="FM_ID" />
+          </Key>
+          <Property Name="FM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UPLOAD_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_EXT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_MAX_SIZE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NO_OF_FILES" Type="Int32" />
+          <Property Name="ROOT_PATH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="REMARKS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CL" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="IEI_TBL_FILE_UPLOADED" Relationship="Self.FK_IEI_TBL_FILE_UPLOADED_IEI_TBL_FILE_TYPES" FromRole="IEI_TBL_FILE_TYPES" ToRole="IEI_TBL_FILE_UPLOADED" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP">
+          <Key>
+            <PropertyRef Name="UM_ID" />
+          </Key>
+          <Property Name="UM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FU_ID" Type="Int32" />
+          <Property Name="RECSLNO" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IEI_TBL_FILE_UPLOADED" Relationship="Self.FK_IEI_TBL_FILE_UPLOAD_VS_MEMB_APP_IEI_TBL_FILE_UPLOADED" FromRole="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" ToRole="IEI_TBL_FILE_UPLOADED" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_FILE_UPLOADED">
+          <Key>
+            <PropertyRef Name="FU_ID" />
+          </Key>
+          <Property Name="FU_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="REG_ID" Type="Int32" />
+          <Property Name="RECSLNO" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FM_ID" Type="Int32" />
+          <Property Name="UPLOAD_FOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ROOT_PATH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PHYSICAL_PATH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_SIZE" Type="Int32" />
+          <Property Name="ORIGINAL_FILE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFIED_FILE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_EXTENSION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ERR_MSG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ERR_CODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS_FLAG" Type="Boolean" />
+          <Property Name="APP_VER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IEI_TBL_FILE_TYPES" Relationship="Self.FK_IEI_TBL_FILE_UPLOADED_IEI_TBL_FILE_TYPES" FromRole="IEI_TBL_FILE_UPLOADED" ToRole="IEI_TBL_FILE_TYPES" />
+          <NavigationProperty Name="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" Relationship="Self.FK_IEI_TBL_FILE_UPLOAD_VS_MEMB_APP_IEI_TBL_FILE_UPLOADED" FromRole="IEI_TBL_FILE_UPLOADED" ToRole="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" />
+          <NavigationProperty Name="IEI_TBL_TECH_PROPOSAL" Relationship="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED" FromRole="IEI_TBL_FILE_UPLOADED" ToRole="IEI_TBL_TECH_PROPOSAL" />
+          <NavigationProperty Name="IEI_TBL_TECH_PROPOSAL1" Relationship="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED1" FromRole="IEI_TBL_FILE_UPLOADED" ToRole="IEI_TBL_TECH_PROPOSAL" />
+          <NavigationProperty Name="IEI_TBL_TECH_PROPOSAL2" Relationship="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED2" FromRole="IEI_TBL_FILE_UPLOADED" ToRole="IEI_TBL_TECH_PROPOSAL" />
+          <NavigationProperty Name="IEI_TBL_FRTH_EVENT" Relationship="WEBIEIModel.FK_IEI_TBL_FILE_UPLOADED_BROCHURE_FU_ID" FromRole="IEI_TBL_FILE_UPLOADED" ToRole="IEI_TBL_FRTH_EVENT" />
+          <NavigationProperty Name="IEI_TBL_FRTH_EVENT1" Relationship="WEBIEIModel.FK_IEI_TBL_FILE_UPLOADED_GUIDLINE_FU_ID" FromRole="IEI_TBL_FILE_UPLOADED" ToRole="IEI_TBL_FRTH_EVENT" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_FRTH_EVENT">
+          <Key>
+            <PropertyRef Name="EVENT_ID" />
+          </Key>
+          <Property Name="TECH_PROP_ID" Type="Int32" />
+          <Property Name="CCODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_HD_ID" Type="Int32" />
+          <Property Name="PROG_TYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DIVISION" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_DT" Type="DateTime" Precision="0" />
+          <Property Name="NO_OF_DAYS" Type="Int32" />
+          <Property Name="PROG_THEME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_ABSTRUCT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_VENUE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_VENUE_ADD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="C_PERSON" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="C_PERSON_ADD" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="C_PERSON_MOB" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="C_PERSON_PHONE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="C_PERSON_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GUIDELINE_LINK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BROCHURE_LINK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WEBSITE_LINK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EX_LINK1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EX_LINK2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EX_FIELD1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EX_FIELD2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EVENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUR_EVENT_DAY" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IEI_TBL_TECH_PROPOSAL" Relationship="Self.FK_IEI_TBL_FRTH_EVENT_IEI_TBL_TECH_PROPOSAL" FromRole="IEI_TBL_FRTH_EVENT" ToRole="IEI_TBL_TECH_PROPOSAL" />
+          <NavigationProperty Name="IEI_TBL_CENTMAST" Relationship="WEBIEIModel.FK_IEI_TBL_FRTH_EVENT_IEI_TBL_CENTMAST" FromRole="IEI_TBL_FRTH_EVENT" ToRole="IEI_TBL_CENTMAST" />
+          <Property Name="GUIDLINE_FU_ID" Type="Int32" />
+          <Property Name="BROCHURE_FU_ID" Type="Int32" />
+          <Property Name="PROG_MONTH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_YR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IEI_TBL_FILE_UPLOADED" Relationship="WEBIEIModel.FK_IEI_TBL_FILE_UPLOADED_BROCHURE_FU_ID" FromRole="IEI_TBL_FRTH_EVENT" ToRole="IEI_TBL_FILE_UPLOADED" />
+          <NavigationProperty Name="IEI_TBL_FILE_UPLOADED1" Relationship="WEBIEIModel.FK_IEI_TBL_FILE_UPLOADED_GUIDLINE_FU_ID" FromRole="IEI_TBL_FRTH_EVENT" ToRole="IEI_TBL_FILE_UPLOADED" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_TECH_ASSOCIATE">
+          <Key>
+            <PropertyRef Name="ASSOCIATE_ID" />
+          </Key>
+          <Property Name="ASSOCIATE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TECH_PROP_ID" Type="Int32" />
+          <Property Name="ASSOCIATE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ASSOCIATE_ADD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ASSOCIATE_CONTACTS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_PERSON" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="REMARKS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IEI_TBL_TECH_PROPOSAL" Relationship="Self.FK_IEI_TBL_TECH_ASSOCIATE_IEI_TBL_TECH_PROPOSAL" FromRole="IEI_TBL_TECH_ASSOCIATE" ToRole="IEI_TBL_TECH_PROPOSAL" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_TECH_DIVISION_MAST">
+          <Key>
+            <PropertyRef Name="DIV" />
+          </Key>
+          <Property Name="DIV" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DISCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CL" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="REMARKS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IEI_TBL_TECH_PROPOSAL" Relationship="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_DIVISION_MAST" FromRole="IEI_TBL_TECH_DIVISION_MAST" ToRole="IEI_TBL_TECH_PROPOSAL" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_TECH_PROG_HD">
+          <Key>
+            <PropertyRef Name="PROG_HD_ID" />
+          </Key>
+          <Property Name="PROG_HD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PROG_TYPE_FLG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_TYPE_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_TYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_DESC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_RULES1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_RULES2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_RULES3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="REMARKS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RESERVE_FLG" Type="Boolean" />
+          <Property Name="CL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IEI_TBL_TECH_PROPOSAL" Relationship="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_PROG_HD" FromRole="IEI_TBL_TECH_PROG_HD" ToRole="IEI_TBL_TECH_PROPOSAL" />
+          <NavigationProperty Name="IEI_TBL_TECH_SCHEDULE" Relationship="Self.FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROG_HD" FromRole="IEI_TBL_TECH_PROG_HD" ToRole="IEI_TBL_TECH_SCHEDULE" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_TECH_PROPOSAL">
+          <Key>
+            <PropertyRef Name="TECH_PROP_ID" />
+          </Key>
+          <Property Name="TECH_PROP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="REG_ID" Type="Int32" />
+          <Property Name="CCODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_HD_ID" Type="Int32" />
+          <Property Name="DIVISION_BOARD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_DT_VIOLATION_FLG" Type="Boolean" />
+          <Property Name="DT_VIOLATION_RESION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PROG_DT" Type="DateTime" Precision="0" />
+          <Property Name="NO_OF_DAYS" Type="Int32" />
+          <Property Name="PROG_VENUE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CURR_AMT" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="REQUEST_AMT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GRANT_AMT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PROG_ABSTRUCT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PROP_IP_ADD" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PROPOSAL_FLAG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PROPOSAL_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REMARKS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="REPORT_STATUS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="REPORT_DESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="REPORT_DETAILS_DESC_PATH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DESC_FU_ID" Type="Int32" />
+          <Property Name="REPORT_IMG_DAIS_CAPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REPORT_IMG_DAIS_PATH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DAIS_FU_ID" Type="Int32" />
+          <Property Name="REPORT_IMG_TITLE_CAPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REPORT_IMG_TITLE_PATH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IMG_FU_ID" Type="Int32" />
+          <Property Name="PROPOSAL_CREATE_DT" Type="DateTime" Precision="3" />
+          <Property Name="PROPOSAL_APPROVED_DT" Type="DateTime" Precision="3" />
+          <Property Name="PROPOSAL_REPORT_SUBMIT_DT" Type="DateTime" Precision="3" />
+          <Property Name="USER_PROPOSAL_LOGIN" Type="Int32" />
+          <Property Name="USER_MODERATOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USER_MODERATOR_IP_ADD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USER_REPORT_LOGIN" Type="Int32" />
+          <Property Name="INSERTED_ID" Type="Int32" />
+          <NavigationProperty Name="IEI_TBL_FILE_UPLOADED" Relationship="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED" FromRole="IEI_TBL_TECH_PROPOSAL" ToRole="IEI_TBL_FILE_UPLOADED" />
+          <NavigationProperty Name="IEI_TBL_FILE_UPLOADED1" Relationship="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED1" FromRole="IEI_TBL_TECH_PROPOSAL" ToRole="IEI_TBL_FILE_UPLOADED" />
+          <NavigationProperty Name="IEI_TBL_FILE_UPLOADED2" Relationship="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED2" FromRole="IEI_TBL_TECH_PROPOSAL" ToRole="IEI_TBL_FILE_UPLOADED" />
+          <NavigationProperty Name="IEI_TBL_FRTH_EVENT" Relationship="Self.FK_IEI_TBL_FRTH_EVENT_IEI_TBL_TECH_PROPOSAL" FromRole="IEI_TBL_TECH_PROPOSAL" ToRole="IEI_TBL_FRTH_EVENT" />
+          <NavigationProperty Name="IEI_TBL_TECH_ASSOCIATE" Relationship="Self.FK_IEI_TBL_TECH_ASSOCIATE_IEI_TBL_TECH_PROPOSAL" FromRole="IEI_TBL_TECH_PROPOSAL" ToRole="IEI_TBL_TECH_ASSOCIATE" />
+          <NavigationProperty Name="IEI_TBL_TECH_DIVISION_MAST" Relationship="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_DIVISION_MAST" FromRole="IEI_TBL_TECH_PROPOSAL" ToRole="IEI_TBL_TECH_DIVISION_MAST" />
+          <NavigationProperty Name="IEI_TBL_TECH_PROG_HD" Relationship="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_PROG_HD" FromRole="IEI_TBL_TECH_PROPOSAL" ToRole="IEI_TBL_TECH_PROG_HD" />
+          <NavigationProperty Name="IEI_TBL_TECH_SCHEDULE" Relationship="Self.FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROPOSAL1" FromRole="IEI_TBL_TECH_PROPOSAL" ToRole="IEI_TBL_TECH_SCHEDULE" />
+          <NavigationProperty Name="IEI_TBL_CENTMAST" Relationship="WEBIEIModel.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_CENTMAST" FromRole="IEI_TBL_TECH_PROPOSAL" ToRole="IEI_TBL_CENTMAST" />
+        </EntityType>
+        <EntityType Name="IEI_TBL_TECH_SCHEDULE">
+          <Key>
+            <PropertyRef Name="SCH_ID" />
+          </Key>
+          <Property Name="SCH_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PROG_HD_ID" Type="Int32" />
+          <Property Name="SCHEDULE_YEAR" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="SCHEDULE_DESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="THEME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TECH_PROP_ID" Type="Int32" />
+          <Property Name="SCHEDULE_DT" Type="DateTime" Precision="0" />
+          <Property Name="NO_OF_DAYS" Type="Int32" />
+          <Property Name="SCHEDULE_CREATE_DT" Type="DateTime" Precision="0" />
+          <Property Name="SCHEDULE_CREATE_USER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CL" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IEI_TBL_TECH_PROG_HD" Relationship="Self.FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROG_HD" FromRole="IEI_TBL_TECH_SCHEDULE" ToRole="IEI_TBL_TECH_PROG_HD" />
+          <NavigationProperty Name="IEI_TBL_TECH_PROPOSAL" Relationship="Self.FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROPOSAL1" FromRole="IEI_TBL_TECH_SCHEDULE" ToRole="IEI_TBL_TECH_PROPOSAL" />
+        </EntityType>
+        <Association Name="FK_IEI_TBL_FILE_UPLOADED_IEI_TBL_FILE_TYPES">
+          <End Role="IEI_TBL_FILE_TYPES" Type="Self.IEI_TBL_FILE_TYPES" Multiplicity="0..1" />
+          <End Role="IEI_TBL_FILE_UPLOADED" Type="Self.IEI_TBL_FILE_UPLOADED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_TYPES">
+              <PropertyRef Name="FM_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_FILE_UPLOAD_VS_MEMB_APP_IEI_TBL_FILE_UPLOADED">
+          <End Role="IEI_TBL_FILE_UPLOADED" Type="Self.IEI_TBL_FILE_UPLOADED" Multiplicity="0..1" />
+          <End Role="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" Type="Self.IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FU_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP">
+              <PropertyRef Name="FU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED">
+          <End Role="IEI_TBL_FILE_UPLOADED" Type="Self.IEI_TBL_FILE_UPLOADED" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FU_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="DAIS_FU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED1">
+          <End Role="IEI_TBL_FILE_UPLOADED" Type="Self.IEI_TBL_FILE_UPLOADED" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FU_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="IMG_FU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED2">
+          <End Role="IEI_TBL_FILE_UPLOADED" Type="Self.IEI_TBL_FILE_UPLOADED" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FU_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="DESC_FU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_FRTH_EVENT_IEI_TBL_TECH_PROPOSAL">
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="0..1" />
+          <End Role="IEI_TBL_FRTH_EVENT" Type="Self.IEI_TBL_FRTH_EVENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="TECH_PROP_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_FRTH_EVENT">
+              <PropertyRef Name="TECH_PROP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_ASSOCIATE_IEI_TBL_TECH_PROPOSAL">
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_ASSOCIATE" Type="Self.IEI_TBL_TECH_ASSOCIATE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="TECH_PROP_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_ASSOCIATE">
+              <PropertyRef Name="TECH_PROP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_DIVISION_MAST">
+          <End Role="IEI_TBL_TECH_DIVISION_MAST" Type="Self.IEI_TBL_TECH_DIVISION_MAST" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_TECH_DIVISION_MAST">
+              <PropertyRef Name="DIV" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="DIVISION_BOARD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_PROG_HD">
+          <End Role="IEI_TBL_TECH_PROG_HD" Type="Self.IEI_TBL_TECH_PROG_HD" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_TECH_PROG_HD">
+              <PropertyRef Name="PROG_HD_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="PROG_HD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROG_HD">
+          <End Role="IEI_TBL_TECH_PROG_HD" Type="Self.IEI_TBL_TECH_PROG_HD" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_SCHEDULE" Type="Self.IEI_TBL_TECH_SCHEDULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_TECH_PROG_HD">
+              <PropertyRef Name="PROG_HD_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_SCHEDULE">
+              <PropertyRef Name="PROG_HD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROPOSAL1">
+          <End Role="IEI_TBL_TECH_PROPOSAL" Type="Self.IEI_TBL_TECH_PROPOSAL" Multiplicity="0..1" />
+          <End Role="IEI_TBL_TECH_SCHEDULE" Type="Self.IEI_TBL_TECH_SCHEDULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="TECH_PROP_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_SCHEDULE">
+              <PropertyRef Name="TECH_PROP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WEBIEIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="IEI_TBL_FILE_TYPES" EntityType="Self.IEI_TBL_FILE_TYPES" />
+          <EntitySet Name="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" EntityType="Self.IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" />
+          <EntitySet Name="IEI_TBL_FILE_UPLOADED" EntityType="Self.IEI_TBL_FILE_UPLOADED" />
+          <EntitySet Name="IEI_TBL_FRTH_EVENT" EntityType="Self.IEI_TBL_FRTH_EVENT" />
+          <EntitySet Name="IEI_TBL_TECH_ASSOCIATE" EntityType="Self.IEI_TBL_TECH_ASSOCIATE" />
+          <EntitySet Name="IEI_TBL_TECH_DIVISION_MAST" EntityType="Self.IEI_TBL_TECH_DIVISION_MAST" />
+          <EntitySet Name="IEI_TBL_TECH_PROG_HD" EntityType="Self.IEI_TBL_TECH_PROG_HD" />
+          <EntitySet Name="IEI_TBL_TECH_PROPOSAL" EntityType="Self.IEI_TBL_TECH_PROPOSAL" />
+          <EntitySet Name="IEI_TBL_TECH_SCHEDULE" EntityType="Self.IEI_TBL_TECH_SCHEDULE" />
+          <AssociationSet Name="FK_IEI_TBL_FILE_UPLOADED_IEI_TBL_FILE_TYPES" Association="Self.FK_IEI_TBL_FILE_UPLOADED_IEI_TBL_FILE_TYPES">
+            <End Role="IEI_TBL_FILE_TYPES" EntitySet="IEI_TBL_FILE_TYPES" />
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_FILE_UPLOAD_VS_MEMB_APP_IEI_TBL_FILE_UPLOADED" Association="Self.FK_IEI_TBL_FILE_UPLOAD_VS_MEMB_APP_IEI_TBL_FILE_UPLOADED">
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+            <End Role="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" EntitySet="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED" Association="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED">
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED1" Association="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED1">
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED2" Association="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_FILE_UPLOADED2">
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_FRTH_EVENT_IEI_TBL_TECH_PROPOSAL" Association="Self.FK_IEI_TBL_FRTH_EVENT_IEI_TBL_TECH_PROPOSAL">
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+            <End Role="IEI_TBL_FRTH_EVENT" EntitySet="IEI_TBL_FRTH_EVENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_ASSOCIATE_IEI_TBL_TECH_PROPOSAL" Association="Self.FK_IEI_TBL_TECH_ASSOCIATE_IEI_TBL_TECH_PROPOSAL">
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+            <End Role="IEI_TBL_TECH_ASSOCIATE" EntitySet="IEI_TBL_TECH_ASSOCIATE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_DIVISION_MAST" Association="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_DIVISION_MAST">
+            <End Role="IEI_TBL_TECH_DIVISION_MAST" EntitySet="IEI_TBL_TECH_DIVISION_MAST" />
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_PROG_HD" Association="Self.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_TECH_PROG_HD">
+            <End Role="IEI_TBL_TECH_PROG_HD" EntitySet="IEI_TBL_TECH_PROG_HD" />
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROG_HD" Association="Self.FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROG_HD">
+            <End Role="IEI_TBL_TECH_PROG_HD" EntitySet="IEI_TBL_TECH_PROG_HD" />
+            <End Role="IEI_TBL_TECH_SCHEDULE" EntitySet="IEI_TBL_TECH_SCHEDULE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROPOSAL1" Association="Self.FK_IEI_TBL_TECH_SCHEDULE_IEI_TBL_TECH_PROPOSAL1">
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+            <End Role="IEI_TBL_TECH_SCHEDULE" EntitySet="IEI_TBL_TECH_SCHEDULE" />
+          </AssociationSet>
+          <EntitySet Name="IEI_TBL_CENTMAST" EntityType="WEBIEIModel.IEI_TBL_CENTMAST" />
+          <AssociationSet Name="FK_IEI_TBL_FRTH_EVENT_IEI_TBL_CENTMAST" Association="WEBIEIModel.FK_IEI_TBL_FRTH_EVENT_IEI_TBL_CENTMAST">
+            <End Role="IEI_TBL_CENTMAST" EntitySet="IEI_TBL_CENTMAST" />
+            <End Role="IEI_TBL_FRTH_EVENT" EntitySet="IEI_TBL_FRTH_EVENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_CENTMAST" Association="WEBIEIModel.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_CENTMAST">
+            <End Role="IEI_TBL_CENTMAST" EntitySet="IEI_TBL_CENTMAST" />
+            <End Role="IEI_TBL_TECH_PROPOSAL" EntitySet="IEI_TBL_TECH_PROPOSAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_FILE_UPLOADED_BROCHURE_FU_ID" Association="WEBIEIModel.FK_IEI_TBL_FILE_UPLOADED_BROCHURE_FU_ID">
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+            <End Role="IEI_TBL_FRTH_EVENT" EntitySet="IEI_TBL_FRTH_EVENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IEI_TBL_FILE_UPLOADED_GUIDLINE_FU_ID" Association="WEBIEIModel.FK_IEI_TBL_FILE_UPLOADED_GUIDLINE_FU_ID">
+            <End Role="IEI_TBL_FILE_UPLOADED" EntitySet="IEI_TBL_FILE_UPLOADED" />
+            <End Role="IEI_TBL_FRTH_EVENT" EntitySet="IEI_TBL_FRTH_EVENT" />
+          </AssociationSet>
+          <FunctionImport Name="SP_Sync_MembData1" ReturnType="Collection(WEBIEIModel.SP_Sync_MembData_Result)">
+            <Parameter Name="RECSLNO" Mode="In" Type="String" />
+            <Parameter Name="OLDMEMBCODE" Mode="In" Type="String" />
+            <Parameter Name="NEWMEMBCODE" Mode="In" Type="String" />
+            <Parameter Name="PARTYCODE" Mode="In" Type="String" />
+            <Parameter Name="MEMB_IDENTITY" Mode="In" Type="String" />
+            <Parameter Name="LOGIN_ID" Mode="In" Type="Int32" />
+            <Parameter Name="PARTY_NAME" Mode="In" Type="String" />
+            <Parameter Name="SALUTATION" Mode="In" Type="String" />
+            <Parameter Name="SFX" Mode="In" Type="String" />
+            <Parameter Name="ADD1" Mode="In" Type="String" />
+            <Parameter Name="ADD2" Mode="In" Type="String" />
+            <Parameter Name="ADD3" Mode="In" Type="String" />
+            <Parameter Name="ADD4" Mode="In" Type="String" />
+            <Parameter Name="ADD5" Mode="In" Type="String" />
+            <Parameter Name="PIN" Mode="In" Type="String" />
+            <Parameter Name="NATIONALITY" Mode="In" Type="String" />
+            <Parameter Name="COUNTRY_RESIDENCE" Mode="In" Type="String" />
+            <Parameter Name="GENDER" Mode="In" Type="String" />
+            <Parameter Name="MOBILE" Mode="In" Type="String" />
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="PHONE" Mode="In" Type="String" />
+            <Parameter Name="DOB" Mode="In" Type="DateTime" />
+            <Parameter Name="CENTRE" Mode="In" Type="String" />
+            <Parameter Name="DIVISION" Mode="In" Type="String" />
+            <Parameter Name="SUBSCRIPTION_CATEGORY" Mode="In" Type="String" />
+            <Parameter Name="ENROLEMENT_START_DT" Mode="In" Type="DateTime" />
+            <Parameter Name="ENROLEMENT_END_DT" Mode="In" Type="DateTime" />
+            <Parameter Name="SUBSCRIPTION_END_DT" Mode="In" Type="DateTime" />
+            <Parameter Name="MEMB_CATEGORY" Mode="In" Type="String" />
+            <Parameter Name="REG_CAT" Mode="In" Type="String" />
+            <Parameter Name="MEMB_TYPE" Mode="In" Type="String" />
+            <Parameter Name="GENERATE_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="UPLOAD_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="WEB_UPDT_FLG" Mode="In" Type="String" />
+            <Parameter Name="CL" Mode="In" Type="String" />
+            <Parameter Name="REMARKS" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="IEI_TBL_CENTMAST">
+          <Key>
+            <PropertyRef Name="CCODE" />
+          </Key>
+          <Property Name="CCODE" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CADL2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CADL3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CADL4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CADL5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EMAILID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TEL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="FAX" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="IEI_TBL_FRTH_EVENT" Relationship="WEBIEIModel.FK_IEI_TBL_FRTH_EVENT_IEI_TBL_CENTMAST" FromRole="IEI_TBL_CENTMAST" ToRole="IEI_TBL_FRTH_EVENT" />
+          <NavigationProperty Name="IEI_TBL_TECH_PROPOSAL" Relationship="WEBIEIModel.FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_CENTMAST" FromRole="IEI_TBL_CENTMAST" ToRole="IEI_TBL_TECH_PROPOSAL" />
+        </EntityType>
+        <Association Name="FK_IEI_TBL_FRTH_EVENT_IEI_TBL_CENTMAST">
+          <End Type="WEBIEIModel.IEI_TBL_CENTMAST" Role="IEI_TBL_CENTMAST" Multiplicity="0..1" />
+          <End Type="WEBIEIModel.IEI_TBL_FRTH_EVENT" Role="IEI_TBL_FRTH_EVENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_CENTMAST">
+              <PropertyRef Name="CCODE" />
+            </Principal>
+            <Dependent Role="IEI_TBL_FRTH_EVENT">
+              <PropertyRef Name="CCODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_TECH_PROPOSAL_IEI_TBL_CENTMAST">
+          <End Type="WEBIEIModel.IEI_TBL_CENTMAST" Role="IEI_TBL_CENTMAST" Multiplicity="0..1" />
+          <End Type="WEBIEIModel.IEI_TBL_TECH_PROPOSAL" Role="IEI_TBL_TECH_PROPOSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_CENTMAST">
+              <PropertyRef Name="CCODE" />
+            </Principal>
+            <Dependent Role="IEI_TBL_TECH_PROPOSAL">
+              <PropertyRef Name="CCODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_FILE_UPLOADED_BROCHURE_FU_ID">
+          <End Type="WEBIEIModel.IEI_TBL_FILE_UPLOADED" Role="IEI_TBL_FILE_UPLOADED" Multiplicity="0..1" />
+          <End Type="WEBIEIModel.IEI_TBL_FRTH_EVENT" Role="IEI_TBL_FRTH_EVENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FU_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_FRTH_EVENT">
+              <PropertyRef Name="BROCHURE_FU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IEI_TBL_FILE_UPLOADED_GUIDLINE_FU_ID">
+          <End Type="WEBIEIModel.IEI_TBL_FILE_UPLOADED" Role="IEI_TBL_FILE_UPLOADED" Multiplicity="0..1" />
+          <End Type="WEBIEIModel.IEI_TBL_FRTH_EVENT" Role="IEI_TBL_FRTH_EVENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IEI_TBL_FILE_UPLOADED">
+              <PropertyRef Name="FU_ID" />
+            </Principal>
+            <Dependent Role="IEI_TBL_FRTH_EVENT">
+              <PropertyRef Name="GUIDLINE_FU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="SP_Sync_MembData_Result">
+          <Property Type="String" Name="WEB_UPDT_FLG" Nullable="false" MaxLength="1" />
+          <Property Type="Int32" Name="ERROR_CODE" Nullable="false" />
+          <Property Type="String" Name="ERROR_DESC" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="ERROR" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="PARTYCODE" Nullable="true" MaxLength="10" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WEBIEIModelStoreContainer" CdmEntityContainer="WEBIEIEntities">
+          <EntitySetMapping Name="IEI_TBL_FILE_TYPES">
+            <EntityTypeMapping TypeName="WEBIEIModel.IEI_TBL_FILE_TYPES">
+              <MappingFragment StoreEntitySet="IEI_TBL_FILE_TYPES">
+                <ScalarProperty Name="FM_ID" ColumnName="FM_ID" />
+                <ScalarProperty Name="UPLOAD_DESC" ColumnName="UPLOAD_DESC" />
+                <ScalarProperty Name="FILE_EXT" ColumnName="FILE_EXT" />
+                <ScalarProperty Name="FILE_MAX_SIZE" ColumnName="FILE_MAX_SIZE" />
+                <ScalarProperty Name="NO_OF_FILES" ColumnName="NO_OF_FILES" />
+                <ScalarProperty Name="ROOT_PATH" ColumnName="ROOT_PATH" />
+                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+                <ScalarProperty Name="CL" ColumnName="CL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP">
+            <EntityTypeMapping TypeName="WEBIEIModel.IEI_TBL_FILE_UPLOAD_VS_MEMB_APP">
+              <MappingFragment StoreEntitySet="IEI_TBL_FILE_UPLOAD_VS_MEMB_APP">
+                <ScalarProperty Name="UM_ID" ColumnName="UM_ID" />
+                <ScalarProperty Name="FU_ID" ColumnName="FU_ID" />
+                <ScalarProperty Name="RECSLNO" ColumnName="RECSLNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IEI_TBL_FILE_UPLOADED">
+            <EntityTypeMapping TypeName="WEBIEIModel.IEI_TBL_FILE_UPLOADED">
+              <MappingFragment StoreEntitySet="IEI_TBL_FILE_UPLOADED">
+                <ScalarProperty Name="FU_ID" ColumnName="FU_ID" />
+                <ScalarProperty Name="REG_ID" ColumnName="REG_ID" />
+                <ScalarProperty Name="RECSLNO" ColumnName="RECSLNO" />
+                <ScalarProperty Name="FILE_TYPE" ColumnName="FILE_TYPE" />
+                <ScalarProperty Name="FM_ID" ColumnName="FM_ID" />
+                <ScalarProperty Name="UPLOAD_FOR" ColumnName="UPLOAD_FOR" />
+                <ScalarProperty Name="ROOT_PATH" ColumnName="ROOT_PATH" />
+                <ScalarProperty Name="PHYSICAL_PATH" ColumnName="PHYSICAL_PATH" />
+                <ScalarProperty Name="FILE_SIZE" ColumnName="FILE_SIZE" />
+                <ScalarProperty Name="ORIGINAL_FILE_NAME" ColumnName="ORIGINAL_FILE_NAME" />
+                <ScalarProperty Name="MODIFIED_FILE_NAME" ColumnName="MODIFIED_FILE_NAME" />
+                <ScalarProperty Name="FILE_EXTENSION" ColumnName="FILE_EXTENSION" />
+                <ScalarProperty Name="ERR_MSG" ColumnName="ERR_MSG" />
+                <ScalarProperty Name="ERR_CODE" ColumnName="ERR_CODE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="STATUS_FLAG" ColumnName="STATUS_FLAG" />
+                <ScalarProperty Name="APP_VER" ColumnName="APP_VER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IEI_TBL_FRTH_EVENT">
+            <EntityTypeMapping TypeName="WEBIEIModel.IEI_TBL_FRTH_EVENT">
+              <MappingFragment StoreEntitySet="IEI_TBL_FRTH_EVENT">
+                <ScalarProperty Name="PROG_YR" ColumnName="PROG_YR" />
+                <ScalarProperty Name="PROG_MONTH" ColumnName="PROG_MONTH" />
+                <ScalarProperty Name="BROCHURE_FU_ID" ColumnName="BROCHURE_FU_ID" />
+                <ScalarProperty Name="GUIDLINE_FU_ID" ColumnName="GUIDLINE_FU_ID" />
+                <ScalarProperty Name="TECH_PROP_ID" ColumnName="TECH_PROP_ID" />
+                <ScalarProperty Name="CCODE" ColumnName="CCODE" />
+                <ScalarProperty Name="PROG_HD_ID" ColumnName="PROG_HD_ID" />
+                <ScalarProperty Name="PROG_TYPE" ColumnName="PROG_TYPE" />
+                <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
+                <ScalarProperty Name="PROG_TITLE" ColumnName="PROG_TITLE" />
+                <ScalarProperty Name="PROG_DT" ColumnName="PROG_DT" />
+                <ScalarProperty Name="NO_OF_DAYS" ColumnName="NO_OF_DAYS" />
+                <ScalarProperty Name="PROG_THEME" ColumnName="PROG_THEME" />
+                <ScalarProperty Name="PROG_ABSTRUCT" ColumnName="PROG_ABSTRUCT" />
+                <ScalarProperty Name="PROG_VENUE_NAME" ColumnName="PROG_VENUE_NAME" />
+                <ScalarProperty Name="PROG_VENUE_ADD" ColumnName="PROG_VENUE_ADD" />
+                <ScalarProperty Name="C_PERSON" ColumnName="C_PERSON" />
+                <ScalarProperty Name="C_PERSON_ADD" ColumnName="C_PERSON_ADD" />
+                <ScalarProperty Name="C_PERSON_MOB" ColumnName="C_PERSON_MOB" />
+                <ScalarProperty Name="C_PERSON_PHONE" ColumnName="C_PERSON_PHONE" />
+                <ScalarProperty Name="C_PERSON_EMAIL" ColumnName="C_PERSON_EMAIL" />
+                <ScalarProperty Name="GUIDELINE_LINK" ColumnName="GUIDELINE_LINK" />
+                <ScalarProperty Name="BROCHURE_LINK" ColumnName="BROCHURE_LINK" />
+                <ScalarProperty Name="WEBSITE_LINK" ColumnName="WEBSITE_LINK" />
+                <ScalarProperty Name="EX_LINK1" ColumnName="EX_LINK1" />
+                <ScalarProperty Name="EX_LINK2" ColumnName="EX_LINK2" />
+                <ScalarProperty Name="EX_FIELD1" ColumnName="EX_FIELD1" />
+                <ScalarProperty Name="EX_FIELD2" ColumnName="EX_FIELD2" />
+                <ScalarProperty Name="EVENT_ID" ColumnName="EVENT_ID" />
+                <ScalarProperty Name="CUR_EVENT_DAY" ColumnName="CUR_EVENT_DAY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IEI_TBL_TECH_ASSOCIATE">
+            <EntityTypeMapping TypeName="WEBIEIModel.IEI_TBL_TECH_ASSOCIATE">
+              <MappingFragment StoreEntitySet="IEI_TBL_TECH_ASSOCIATE">
+                <ScalarProperty Name="ASSOCIATE_ID" ColumnName="ASSOCIATE_ID" />
+                <ScalarProperty Name="TECH_PROP_ID" ColumnName="TECH_PROP_ID" />
+                <ScalarProperty Name="ASSOCIATE_NAME" ColumnName="ASSOCIATE_NAME" />
+                <ScalarProperty Name="ASSOCIATE_ADD" ColumnName="ASSOCIATE_ADD" />
+                <ScalarProperty Name="ASSOCIATE_CONTACTS" ColumnName="ASSOCIATE_CONTACTS" />
+                <ScalarProperty Name="CONTACT_PERSON" ColumnName="CONTACT_PERSON" />
+                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IEI_TBL_TECH_DIVISION_MAST">
+            <EntityTypeMapping TypeName="WEBIEIModel.IEI_TBL_TECH_DIVISION_MAST">
+              <MappingFragment StoreEntitySet="IEI_TBL_TECH_DIVISION_MAST">
+                <ScalarProperty Name="DIV" ColumnName="DIV" />
+                <ScalarProperty Name="DISCRIPTION" ColumnName="DISCRIPTION" />
+                <ScalarProperty Name="CL" ColumnName="CL" />
+                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IEI_TBL_TECH_PROG_HD">
+            <EntityTypeMapping TypeName="WEBIEIModel.IEI_TBL_TECH_PROG_HD">
+              <MappingFragment StoreEntitySet="IEI_TBL_TECH_PROG_HD">
+                <ScalarProperty Name="PROG_HD_ID" ColumnName="PROG_HD_ID" />
+                <ScalarProperty Name="PROG_TYPE_FLG" ColumnName="PROG_TYPE_FLG" />
+                <ScalarProperty Name="PROG_TYPE_DESC" ColumnName="PROG_TYPE_DESC" />
+                <ScalarProperty Name="PROG_TYPE" ColumnName="PROG_TYPE" />
+                <ScalarProperty Name="PROG_DESC" ColumnName="PROG_DESC" />
+                <ScalarProperty Name="PROG_RULES1" ColumnName="PROG_RULES1" />
+                <ScalarProperty Name="PROG_RULES2" ColumnName="PROG_RULES2" />
+                <ScalarProperty Name="PROG_RULES3" ColumnName="PROG_RULES3" />
+                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+                <ScalarProperty Name="RESERVE_FLG" ColumnName="RESERVE_FLG" />
+                <ScalarProperty Name="CL" ColumnName="CL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IEI_TBL_TECH_PROPOSAL">
+            <EntityTypeMapping TypeName="WEBIEIModel.IEI_TBL_TECH_PROPOSAL">
+              <MappingFragment StoreEntitySet="IEI_TBL_TECH_PROPOSAL">
+                <ScalarProperty Name="TECH_PROP_ID" ColumnName="TECH_PROP_ID" />
+                <ScalarProperty Name="REG_ID" ColumnName="REG_ID" />
+                <ScalarProperty Name="CCODE" ColumnName="CCODE" />
+                <ScalarProperty Name="PROG_HD_ID" ColumnName="PROG_HD_ID" />
+                <ScalarProperty Name="DIVISION_BOARD" ColumnName="DIVISION_BOARD" />
+                <ScalarProperty Name="PROG_TITLE" ColumnName="PROG_TITLE" />
+                <ScalarProperty Name="PROG_DT_VIOLATION_FLG" ColumnName="PROG_DT_VIOLATION_FLG" />
+                <ScalarProperty Name="DT_VIOLATION_RESION" ColumnName="DT_VIOLATION_RESION" />
+                <ScalarProperty Name="PROG_DT" ColumnName="PROG_DT" />
+                <ScalarProperty Name="NO_OF_DAYS" ColumnName="NO_OF_DAYS" />
+                <ScalarProperty Name="PROG_VENUE" ColumnName="PROG_VENUE" />
+                <ScalarProperty Name="CURR_AMT" ColumnName="CURR_AMT" />
+                <ScalarProperty Name="REQUEST_AMT" ColumnName="REQUEST_AMT" />
+                <ScalarProperty Name="GRANT_AMT" ColumnName="GRANT_AMT" />
+                <ScalarProperty Name="PROG_ABSTRUCT" ColumnName="PROG_ABSTRUCT" />
+                <ScalarProperty Name="PROP_IP_ADD" ColumnName="PROP_IP_ADD" />
+                <ScalarProperty Name="PROPOSAL_FLAG" ColumnName="PROPOSAL_FLAG" />
+                <ScalarProperty Name="PROPOSAL_STATUS" ColumnName="PROPOSAL_STATUS" />
+                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+                <ScalarProperty Name="REPORT_STATUS" ColumnName="REPORT_STATUS" />
+                <ScalarProperty Name="REPORT_DESC" ColumnName="REPORT_DESC" />
+                <ScalarProperty Name="REPORT_DETAILS_DESC_PATH" ColumnName="REPORT_DETAILS_DESC_PATH" />
+                <ScalarProperty Name="DESC_FU_ID" ColumnName="DESC_FU_ID" />
+                <ScalarProperty Name="REPORT_IMG_DAIS_CAPTION" ColumnName="REPORT_IMG_DAIS_CAPTION" />
+                <ScalarProperty Name="REPORT_IMG_DAIS_PATH" ColumnName="REPORT_IMG_DAIS_PATH" />
+                <ScalarProperty Name="DAIS_FU_ID" ColumnName="DAIS_FU_ID" />
+                <ScalarProperty Name="REPORT_IMG_TITLE_CAPTION" ColumnName="REPORT_IMG_TITLE_CAPTION" />
+                <ScalarProperty Name="REPORT_IMG_TITLE_PATH" ColumnName="REPORT_IMG_TITLE_PATH" />
+                <ScalarProperty Name="IMG_FU_ID" ColumnName="IMG_FU_ID" />
+                <ScalarProperty Name="PROPOSAL_CREATE_DT" ColumnName="PROPOSAL_CREATE_DT" />
+                <ScalarProperty Name="PROPOSAL_APPROVED_DT" ColumnName="PROPOSAL_APPROVED_DT" />
+                <ScalarProperty Name="PROPOSAL_REPORT_SUBMIT_DT" ColumnName="PROPOSAL_REPORT_SUBMIT_DT" />
+                <ScalarProperty Name="USER_PROPOSAL_LOGIN" ColumnName="USER_PROPOSAL_LOGIN" />
+                <ScalarProperty Name="USER_MODERATOR" ColumnName="USER_MODERATOR" />
+                <ScalarProperty Name="USER_MODERATOR_IP_ADD" ColumnName="USER_MODERATOR_IP_ADD" />
+                <ScalarProperty Name="USER_REPORT_LOGIN" ColumnName="USER_REPORT_LOGIN" />
+                <ScalarProperty Name="INSERTED_ID" ColumnName="INSERTED_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IEI_TBL_TECH_SCHEDULE">
+            <EntityTypeMapping TypeName="WEBIEIModel.IEI_TBL_TECH_SCHEDULE">
+              <MappingFragment StoreEntitySet="IEI_TBL_TECH_SCHEDULE">
+                <ScalarProperty Name="SCH_ID" ColumnName="SCH_ID" />
+                <ScalarProperty Name="PROG_HD_ID" ColumnName="PROG_HD_ID" />
+                <ScalarProperty Name="SCHEDULE_YEAR" ColumnName="SCHEDULE_YEAR" />
+                <ScalarProperty Name="SCHEDULE_DESC" ColumnName="SCHEDULE_DESC" />
+                <ScalarProperty Name="THEME" ColumnName="THEME" />
+                <ScalarProperty Name="TECH_PROP_ID" ColumnName="TECH_PROP_ID" />
+                <ScalarProperty Name="SCHEDULE_DT" ColumnName="SCHEDULE_DT" />
+                <ScalarProperty Name="NO_OF_DAYS" ColumnName="NO_OF_DAYS" />
+                <ScalarProperty Name="SCHEDULE_CREATE_DT" ColumnName="SCHEDULE_CREATE_DT" />
+                <ScalarProperty Name="SCHEDULE_CREATE_USER" ColumnName="SCHEDULE_CREATE_USER" />
+                <ScalarProperty Name="CL" ColumnName="CL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IEI_TBL_CENTMAST">
+            <EntityTypeMapping TypeName="WEBIEIModel.IEI_TBL_CENTMAST">
+              <MappingFragment StoreEntitySet="IEI_TBL_CENTMAST">
+                <ScalarProperty Name="COUNTRY_TYPE" ColumnName="COUNTRY_TYPE" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="TEL" ColumnName="TEL" />
+                <ScalarProperty Name="EMAILID" ColumnName="EMAILID" />
+                <ScalarProperty Name="CADL5" ColumnName="CADL5" />
+                <ScalarProperty Name="CADL4" ColumnName="CADL4" />
+                <ScalarProperty Name="CADL3" ColumnName="CADL3" />
+                <ScalarProperty Name="CADL2" ColumnName="CADL2" />
+                <ScalarProperty Name="CNAME" ColumnName="CNAME" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="CCODE" ColumnName="CCODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_Sync_MembData1" FunctionName="WEBIEIModel.Store.SP_Sync_MembData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WEBIEIModel.SP_Sync_MembData_Result">
+                <ScalarProperty Name="WEB_UPDT_FLG" ColumnName="WEB_UPDT_FLG" />
+                <ScalarProperty Name="ERROR_CODE" ColumnName="ERROR_CODE" />
+                <ScalarProperty Name="ERROR_DESC" ColumnName="ERROR_DESC" />
+                <ScalarProperty Name="ERROR" ColumnName="ERROR" />
+                <ScalarProperty Name="PARTYCODE" ColumnName="PARTYCODE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

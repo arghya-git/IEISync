@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{40793A27-478B-4357-B4C3-FC8943131F3D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DBSync</RootNamespace>
+    <AssemblyName>DockSample</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutDialog.Designer.cs">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DummyDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DummyDoc.Designer.cs">
+      <DependentUpon>DummyDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DummyOutputWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DummyOutputWindow.Designer.cs">
+      <DependentUpon>DummyOutputWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DummyPropertyWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DummyPropertyWindow.Designer.cs">
+      <DependentUpon>DummyPropertyWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DummySolutionExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DummySolutionExplorer.Designer.cs">
+      <DependentUpon>DummySolutionExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DummyTaskList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DummyTaskList.Designer.cs">
+      <DependentUpon>DummyTaskList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmActionExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmActionExplorer.CustomMethods.cs">
+      <DependentUpon>frmActionExplorer.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmActionExplorer.CustomProperties.cs">
+      <DependentUpon>frmActionExplorer.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmActionExplorer.Designer.cs">
+      <DependentUpon>frmActionExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmActnWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmActnWindow.Designer.cs">
+      <DependentUpon>frmActnWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOraToSQLNewOrUpgradeMembData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOraToSQLNewOrUpgradeMembData.Designer.cs">
+      <DependentUpon>frmOraToSQLNewOrUpgradeMembData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSQLToOraChangeOfAddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSQLToOraChangeOfAddress.Designer.cs">
+      <DependentUpon>frmSQLToOraChangeOfAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOraDBConn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOraDBConn.Designer.cs">
+      <DependentUpon>frmOraDBConn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPropertyWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPropertyWindow.Designer.cs">
+      <DependentUpon>frmPropertyWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegKeySettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegKeySettings.Designer.cs">
+      <DependentUpon>frmRegKeySettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSqlServerConnect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSqlServerConnect.Designer.cs">
+      <DependentUpon>frmSqlServerConnect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fromSQLToOraPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fromSQLToOraPayment.Designer.cs">
+      <DependentUpon>fromSQLToOraPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutputWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutputWindow.Designer.cs">
+      <DependentUpon>OutputWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DummyToolbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DummyToolbox.Designer.cs">
+      <DependentUpon>DummyToolbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customization\DockHelper.cs" />
+    <Compile Include="frmDBConnect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDBConnect.Designer.cs">
+      <DependentUpon>frmDBConnect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmServerExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServerExplorer.Designer.cs">
+      <DependentUpon>frmServerExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStatusWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStatusWindow.Designer.cs">
+      <DependentUpon>frmStatusWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\OutputWindowEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\OutputWindowEditor.Designer.cs">
+      <DependentUpon>OutputWindowEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UCOraDbConn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UCOraDbConn.Designer.cs">
+      <DependentUpon>UCOraDbConn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UCRegKeySettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UCRegKeySettings.Designer.cs">
+      <DependentUpon>UCRegKeySettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UCSqlServerDbConn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UCSqlServerDbConn.Designer.cs">
+      <DependentUpon>UCSqlServerDbConn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DummyDoc.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DummyDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DummyOutputWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DummyOutputWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DummyPropertyWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DummyPropertyWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DummySolutionExplorer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DummySolutionExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DummyTaskList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DummyTaskList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmActionExplorer.resx">
+      <DependentUpon>frmActionExplorer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmActnWindow.resx">
+      <DependentUpon>frmActnWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOraToSQLNewOrUpgradeMembData.resx">
+      <DependentUpon>frmOraToSQLNewOrUpgradeMembData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSQLToOraChangeOfAddress.resx">
+      <DependentUpon>frmSQLToOraChangeOfAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOraDBConn.resx">
+      <DependentUpon>frmOraDBConn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPropertyWindow.resx">
+      <DependentUpon>frmPropertyWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegKeySettings.resx">
+      <DependentUpon>frmRegKeySettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSqlServerConnect.resx">
+      <DependentUpon>frmSqlServerConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fromSQLToOraPayment.resx">
+      <DependentUpon>fromSQLToOraPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutputWindow.resx">
+      <DependentUpon>OutputWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DummyToolbox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DummyToolbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDBConnect.resx">
+      <DependentUpon>frmDBConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServerExplorer.resx">
+      <DependentUpon>frmServerExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStatusWindow.resx">
+      <DependentUpon>frmStatusWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UC\OutputWindowEditor.resx">
+      <DependentUpon>OutputWindowEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UCOraDbConn.resx">
+      <DependentUpon>UCOraDbConn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UCRegKeySettings.resx">
+      <DependentUpon>UCRegKeySettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UCSqlServerDbConn.resx">
+      <DependentUpon>UCSqlServerDbConn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Images\ArrowDown.bmp" />
+    <None Include="Images\ArrowUp.bmp" />
+    <None Include="Images\Bitmap.ico" />
+    <None Include="Images\BlankIcon.ico" />
+    <None Include="Images\ClosedFolder.ICO" />
+    <None Include="Images\CSFile.ico" />
+    <None Include="Images\CSProject.ico" />
+    <None Include="Images\File.ico" />
+    <None Include="Images\Form.ico" />
+    <None Include="Images\Mouse.bmp" />
+    <None Include="Images\msenv22.ico" />
+    <None Include="Images\New.ico" />
+    <None Include="Images\Open.ico" />
+    <None Include="Images\OpenFolder.ICO" />
+    <None Include="Images\OutputWindow.ico" />
+    <None Include="Images\PropertyWindow.ico" />
+    <None Include="Images\Reference.ico" />
+    <None Include="Images\References.ico" />
+    <None Include="Images\SolutionExplorer.ico" />
+    <None Include="Images\TaskListWindow.ico" />
+    <None Include="Images\ToolboxWindow.ico" />
+    <None Include="Images\XmlFile.ico" />
+    <None Include="JSonFiles\OraData.json" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ToolWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolWindow.Designer.cs">
+      <DependentUpon>ToolWindow.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBAdapter\DBAdapter.csproj">
+      <Project>{3f744c83-c475-41d9-93d7-d5a613f8595f}</Project>
+      <Name>DBAdapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBSyncBL\DBSyncBL.csproj">
+      <Project>{75107dc5-c607-4aca-8383-60460a154748}</Project>
+      <Name>DBSyncBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FTPSolution\FTPSolution.csproj">
+      <Project>{127ced9f-2091-4dc8-952f-0164aff5b754}</Project>
+      <Name>FTPSolution</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReadWriteJson\ReadWriteJson.csproj">
+      <Project>{04cff14a-b875-495d-a588-eeed85c03e5e}</Project>
+      <Name>ReadWriteJson</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModel\ViewModel.csproj">
+      <Project>{546b5461-18b1-44f3-ab82-af0943dedd10}</Project>
+      <Name>ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\ThemeVS2015.csproj">
+      <Project>{007d4ac8-948f-4816-86ad-b9d1343672c1}</Project>
+      <Name>ThemeVS2015</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
+      <Project>{C75532C4-765B-418E-B09B-46D36B2ABDB1}</Project>
+      <Name>WinFormsUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DockPanel.xml" />
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ToolWindow.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="license.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\ActivityDiagram.ico" />
+    <Content Include="Images\Application.ico" />
+    <Content Include="Images\ASPNETGenericHandlerFile.ico" />
+    <Content Include="Images\ASPXFile.ico" />
+    <Content Include="Images\BackgroundTask.png" />
+    <Content Include="Images\BackgroundTasks.png" />
+    <Content Include="Images\bgtsk.png" />
+    <Content Include="Images\BlockError.ico" />
+    <Content Include="Images\Branch.ico" />
+    <Content Include="Images\BrokerPriority.ico" />
+    <Content Include="Images\Cache.ico" />
+    <Content Include="Images\CacheError.ico" />
+    <Content Include="Images\CacheGroup.ico" />
+    <Content Include="Images\CacheOK.ico" />
+    <Content Include="Images\CacheRefresh.ico" />
+    <Content Include="Images\ClearWindowContent_16x.png" />
+    <Content Include="Images\CloudFile.ico" />
+    <Content Include="Images\CodeActivity.ico" />
+    <Content Include="Images\ConnectionOffline.ico" />
+    <Content Include="Images\ConnectionWarning.ico" />
+    <Content Include="Images\connectLogo.png" />
+    <Content Include="Images\ConvertBranchToFolder.ico" />
+    <Content Include="Images\ConvertFolderToBranch.ico" />
+    <Content Include="Images\CopyToClipboard.ico" />
+    <Content Include="Images\corporate_climb.gif" />
+    <Content Include="Images\Currency.ico" />
+    <Content Include="Images\CustomActionEditor.ico" />
+    <Content Include="Images\Database.ico" />
+    <Content Include="Images\DatabaseGroup.ico" />
+    <Content Include="Images\DatabaseGroupError.ico" />
+    <Content Include="Images\DatabaseRole.ico" />
+    <Content Include="Images\DBconnectedIcon.ico" />
+    <Content Include="Images\DBConnection.png" />
+    <Content Include="Images\DMAChannel.ico" />
+    <Content Include="Images\downAnimatedArrow.gif" />
+    <Content Include="Images\Download_grey.ico" />
+    <Content Include="Images\DrillDown.ico" />
+    <Content Include="Images\DwnAnmtdArw.gif" />
+    <Content Include="Images\DwnArwGif.gif" />
+    <Content Include="Images\Event.ico" />
+    <Content Include="Images\EventLog.ico" />
+    <Content Include="Images\FileEncodingDialog.ico" />
+    <Content Include="Images\FileGroup.ico" />
+    <Content Include="Images\Filter.ico" />
+    <Content Include="Images\FloppyDrive.ico" />
+    <Content Include="Images\Folder.ico" />
+    <Content Include="Images\FolderOpen.ico" />
+    <Content Include="Images\Icon1.ico" />
+    <Content Include="Images\InheritedUserControl.ico" />
+    <Content Include="Images\i_wordwrapGrey_F12.png" />
+    <Content Include="Images\Logo.ico" />
+    <Content Include="Images\Network.ico" />
+    <Content Include="Images\Next_grey_16x.ico" />
+    <Content Include="Images\OpenInWebAccess.ico" />
+    <Content Include="Images\OutlookData.ico" />
+    <Content Include="Images\Output.ico" />
+    <Content Include="Images\parallelogram.png" />
+    <Content Include="Images\parallelogram1.png" />
+    <Content Include="Images\parallelogram2.png" />
+    <Content Include="Images\Pause.ico" />
+    <Content Include="Images\Pause.png" />
+    <Content Include="Images\Pipeline.ico" />
+    <Content Include="Images\Previous_grey.ico" />
+    <Content Include="Images\Process.ico" />
+    <Content Include="Images\ProcessComplete.ico" />
+    <Content Include="Images\ProcessError.ico" />
+    <Content Include="Images\ProcessGuidance.ico" />
+    <Content Include="Images\ProjectPortal.ico" />
+    <Content Include="Images\reConnction.png" />
+    <Content Include="Images\RemoteServer.ico" />
+    <Content Include="Images\ReportingAction.ico" />
+    <Content Include="Images\RetargetApplication.ico" />
+    <Content Include="Images\RigidRelationshipError.ico" />
+    <Content Include="Images\RigidRelationshipInfo.ico" />
+    <Content Include="Images\RigidRelationshipWarning.ico" />
+    <Content Include="Images\rombus.png" />
+    <Content Include="Images\RouteService.ico" />
+    <Content Include="Images\Run.ico" />
+    <Content Include="Images\run1.ico" />
+    <Content Include="Images\runD.png" />
+    <Content Include="Images\runDoun.png" />
+    <Content Include="Images\runUp1.ico" />
+    <Content Include="Images\Search.ico" />
+    <Content Include="Images\SequenceDiagram.ico" />
+    <Content Include="Images\Settings.ico" />
+    <Content Include="Images\SettingsFile.ico" />
+    <Content Include="Images\SettingsGroup.ico" />
+    <Content Include="Images\sliding_down.gif" />
+    <Content Include="Images\SplashScreen.png" />
+    <Content Include="Images\SQLMobileConnection.ico" />
+    <Content Include="Images\SqlOracleConn.png" />
+    <Content Include="Images\SqlOracleconnection.png" />
+    <Content Include="Images\SqlOracleConnFinal.jpg" />
+    <Content Include="Images\sqlserverConn.png" />
+    <Content Include="Images\Start.png" />
+    <Content Include="Images\Stop.ico" />
+    <Content Include="Images\Stop.png" />
+    <Content Include="Images\SyncArrow.ico" />
+    <Content Include="Images\SynchronizeDatabase.ico" />
+    <Content Include="Images\Team.ico" />
+    <Content Include="Images\TeamFoundationServer.ico" />
+    <Content Include="Images\TeamProjectCollection.ico" />
+    <Content Include="Images\ToolBar.png" />
+    <Content Include="Images\UIExplorer.ico" />
+    <Content Include="Images\UMLModelFile_13454.ico" />
+    <Content Include="Images\UpArwGif.gif" />
+    <Content Include="Images\Upload_gray.ico" />
+    <Content Include="Images\WindowsForm.ico" />
+    <Content Include="Logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
