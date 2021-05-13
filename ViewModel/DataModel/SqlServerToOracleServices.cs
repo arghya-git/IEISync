@@ -71,7 +71,8 @@ namespace ViewModel.DataModel
 
         public static List<IEI_VIEW_PAYMENT_SYNC> VIEW_PAYMENT_SYNC { get; set; }
 
-        public ReturnSyncPaymenyDirect() {
+        public ReturnSyncPaymenyDirect()
+        {
             VIEW_PAYMENT_SYNC = new List<IEI_VIEW_PAYMENT_SYNC>();
         }
 
@@ -243,7 +244,7 @@ namespace ViewModel.DataModel
                 ReturnSyncPaymenyDirect.ST_Queue += count;
                 //ReturnSyncPaymenyDirect.ST_Processed = 0;
             }
-           
+
             if (count > 0)
             {
                 bool alreadyInserted = false;
@@ -304,15 +305,15 @@ namespace ViewModel.DataModel
 
                     int i = 0;
                     ReturnSyncPaymenyDirect.VIEW_PAYMENT_SYNC = new List<IEI_VIEW_PAYMENT_SYNC>();
-                    
 
+                    string ORDER_ID = "";
                     foreach (IEI_VIEW_PAYMENT_SYNC _SQL_PAYMENT_SYNC in _VIEW_PAYMENT_SYNC)
                     {
                         i++;
 
                         ReturnSyncPaymenyDirect.VIEW_PAYMENT_SYNC.Add(_SQL_PAYMENT_SYNC);
 
-                      
+                        ORDER_ID = _SQL_PAYMENT_SYNC.ORDER_ID;
 
 
                         string ADD1 = _SQL_PAYMENT_SYNC.ADD1 != null ? _SQL_PAYMENT_SYNC.ADD1.Replace("'", "`").Substring(0, _SQL_PAYMENT_SYNC.ADD1.Length < 40 ? _SQL_PAYMENT_SYNC.ADD1.Length : 39) : "";
@@ -324,7 +325,7 @@ namespace ViewModel.DataModel
                         string EMAIL = _SQL_PAYMENT_SYNC.EMAIL != null ? _SQL_PAYMENT_SYNC.EMAIL.ToLower() : "";
                         string NAME = _SQL_PAYMENT_SYNC.NAME != null ? _SQL_PAYMENT_SYNC.NAME.Replace("'", "`").Substring(0, _SQL_PAYMENT_SYNC.NAME.Length < 40 ? _SQL_PAYMENT_SYNC.NAME.Length : 39) : "";
 
-                        
+
 
 
 
@@ -340,13 +341,13 @@ namespace ViewModel.DataModel
                         //{
 
                         //}
-                            string PREVREFNO = _SQL_PAYMENT_SYNC.RECSLNO;
+                        string PREVREFNO = _SQL_PAYMENT_SYNC.RECSLNO;
 
                         //inClause = inClause + PREVREFNO + (__Dup < cnt1[0].CNT ? "','":"'");
 
                         //inClause = inClause + PREVREFNO + (i < bufferSize ? "','" : "'");
 
-                        inClause =  PREVREFNO ;
+                        inClause = PREVREFNO;
                         //_SQL_PAYMENT_SYNC.RECSLNO = _SQL_PAYMENT_SYNC.RECSLNO.Substring(0, 11) + __Dup.ToString();
                         SQL = @"SELECT COUNT(*) CNT FROM  tbl_document WHERE REFNO='" + _SQL_PAYMENT_SYNC.RECSLNO + "'";
 
@@ -355,10 +356,47 @@ namespace ViewModel.DataModel
                         DataRow rowCNT = OraCon.DbSelectDML.SELECT.ReaderDT.Rows[0];
                         var CNT = rowCNT["CNT"].ToString();
 
+                        if (Convert.ToInt32(CNT) > 0)
+                        {                         
 
+                            SQL = "SELECT COUNT(*) CNT FROM TBL_CHEQUE_DTL WHERE  SUBSTR(CHQDOCNO,1,11)='" + _SQL_PAYMENT_SYNC.RECSLNO.Substring(0, 11) +
+                                 "' AND CHQNO='" + _SQL_PAYMENT_SYNC.ORDER_ID + "'";
+
+                            OraCon.DbSelectDML = OraCon.OraDML<DBAdapter.OraDBCon.DBSelectResult>(DBAdapter.OraDBCon.QueryType.SELECT, DBAdapter.OraDBCon.UsingType.DataReader, SQL, 100);
+
+                            rowCNT = OraCon.DbSelectDML.SELECT.ReaderDT.Rows[0];
+                            CNT = rowCNT["CNT"].ToString();
+
+                            if (Convert.ToInt32(CNT) == 0)
+                            {
+
+                                SQL = "SELECT COUNT(*) CNT FROM tbl_document WHERE  SUBSTR(REFNO,1,11)='" + _SQL_PAYMENT_SYNC.RECSLNO.Substring(0, 11) + "'";
+
+                                OraCon.DbSelectDML = OraCon.OraDML<DBAdapter.OraDBCon.DBSelectResult>(DBAdapter.OraDBCon.QueryType.SELECT, DBAdapter.OraDBCon.UsingType.DataReader, SQL, 100);
+
+                                rowCNT = OraCon.DbSelectDML.SELECT.ReaderDT.Rows[0];
+                                CNT = rowCNT["CNT"].ToString();
+                                _SQL_PAYMENT_SYNC.RECSLNO_MODIFIED = _SQL_PAYMENT_SYNC.RECSLNO.Substring(0, 11) + CNT;
+                            }
+
+
+                        }
+                        SQL = @"SELECT COUNT(*) CNT FROM  tbl_document WHERE REFNO='" + _SQL_PAYMENT_SYNC.RECSLNO_MODIFIED + "'";
+
+                        OraCon.DbSelectDML = OraCon.OraDML<DBAdapter.OraDBCon.DBSelectResult>(DBAdapter.OraDBCon.QueryType.SELECT, DBAdapter.OraDBCon.UsingType.DataReader, SQL, 100);
+
+                        rowCNT = OraCon.DbSelectDML.SELECT.ReaderDT.Rows[0];
+                        CNT = rowCNT["CNT"].ToString();
 
                         if (Convert.ToInt32(CNT) == 0)
                         {
+
+
+
+
+
+
+
                             #region INSERT INTO IEINDIA.TBL_PAYMENT_SYNC
                             SQL = @"INSERT INTO IEINDIA.TBL_PAYMENT_SYNC(REFNO,
                                                                          PREVREFNO,
@@ -775,6 +813,14 @@ namespace ViewModel.DataModel
 
                             SQLCon.Update = SQLCon.SqlDML<DBAdapter.SQLServerDBCon.DBUpdateResult>(DBAdapter.SQLServerDBCon.QueryType.UPDATE, DBAdapter.SQLServerDBCon.UsingType.DataReader, SQL);
 
+                            alreadyInserted = true;
+                            SQL = @"UPDATE [dbo].[IEI_TBL_WEBPAYMENT] SET IS_DOWNLOAD='B' WHERE ORDER_ID='" + _SQL_PAYMENT_SYNC.ORDER_ID + "' AND IS_DOWNLOAD='Y'";
+
+                            SQLCon.Update = SQLCon.SqlDML<DBAdapter.SQLServerDBCon.DBUpdateResult>(DBAdapter.SQLServerDBCon.QueryType.UPDATE, DBAdapter.SQLServerDBCon.UsingType.DataReader, SQL);
+
+
+
+
                             ReturnSyncPaymenyDirect.DT_Current_Duplicate.Add(_SQL_PAYMENT_SYNC);
 
                             //ReturnSyncPaymenyDirect.DT_Total_Duplicate.Add(_SQL_PAYMENT_SYNC);
@@ -784,9 +830,9 @@ namespace ViewModel.DataModel
 
                             //}
                         }
-                       
-                        
-                       
+
+
+
 
                     }
 
@@ -797,26 +843,32 @@ namespace ViewModel.DataModel
 
                     if (!SQLCon.Update.UPDATE.OraErrFlg)
                     {
-                        if (SQLCon.Update.UPDATE.Count == bufferSize)
+                        SQL = @"UPDATE [dbo].[IEI_TBL_WEBPAYMENT] SET IS_DOWNLOAD='N' WHERE ORDER_ID='" + ORDER_ID + "' AND IS_DOWNLOAD='Y'";
+
+                        SQLCon.Update = SQLCon.SqlDML<DBAdapter.SQLServerDBCon.DBUpdateResult>(DBAdapter.SQLServerDBCon.QueryType.UPDATE, DBAdapter.SQLServerDBCon.UsingType.DataReader, SQL);
+                        if (!SQLCon.Update.UPDATE.OraErrFlg)
                         {
-                            COMMIT_FLG = COMMIT_FLG && true;
-                        }
-                        else
-                        {
-                            if (alreadyInserted)
+                            if (SQLCon.Update.UPDATE.Count == bufferSize)
                             {
-                                COMMIT_FLG = COMMIT_FLG && alreadyInserted;
-
-
-
-                                alreadyInserted = false;
+                                COMMIT_FLG = COMMIT_FLG && true;
                             }
                             else
                             {
-                                COMMIT_FLG = COMMIT_FLG && false;
-                                if (OraCon.DbInsertDML.INSERT.OraErrFlg)
+                                if (alreadyInserted)
                                 {
-                                    MessageBox.Show("SQLCon.Update.UPDATE.Count == bufferSize");
+                                    COMMIT_FLG = COMMIT_FLG && alreadyInserted;
+
+
+
+                                    alreadyInserted = false;
+                                }
+                                else
+                                {
+                                    COMMIT_FLG = COMMIT_FLG && false;
+                                    if (OraCon.DbInsertDML.INSERT.OraErrFlg)
+                                    {
+                                        MessageBox.Show("SQLCon.Update.UPDATE.Count == bufferSize");
+                                    }
                                 }
                             }
                         }
